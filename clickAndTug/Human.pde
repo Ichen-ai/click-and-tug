@@ -18,10 +18,10 @@ class Human{
     flagPos.x += strength;
   }
   
-  void fixDistance(float cDistance, float difference){
-    cDistance = flagPos.x - this.pos.x;
+  void fixDistance(){
+    float cDistance = flagPos.x - this.pos.x;
     if (cDistance != sDistance.get(number)){
-      difference = cDistance - sDistance.get(number);
+      float difference = cDistance - sDistance.get(number);
       this.pos.x += difference;
     }
   }
