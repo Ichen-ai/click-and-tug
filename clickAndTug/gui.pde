@@ -19,7 +19,7 @@ synchronized public void guiDraw(PApplet appc, GWinData data) { //_CODE_:gui:660
 } //_CODE_:gui:660207:
 
 public void numAllies(GCustomSlider source, GEvent event) { //_CODE_:allies:934943:
-  println("Allies - GCustomSlider >> GEvent." + event + " @ " + millis());
+  numAlliesChange();
 } //_CODE_:allies:934943:
 
 

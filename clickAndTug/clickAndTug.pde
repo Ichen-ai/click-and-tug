@@ -10,10 +10,13 @@ void setup(){
   createGUI();
   
   sDistance = new ArrayList();
+  humanlist = new ArrayList();
   
   flagPos = new PVector(300, 100);
   
   sDistance.add(-100.0);
+  
+  numAlliesChange();
 }
 
 void draw(){
@@ -28,14 +31,28 @@ void draw(){
   boss.pull();
   boss.fixDistance();
   boss.display();
+  
+  for(int i = 0; i > humanlist.size(); i++){
+    Human h = humanlist.get(i);
+    h.fixDistance();
+    h.display();
+  }
 }
 
 void numAlliesChange(){
+  humanlist.clear();
+  sDistance.clear();
   for(int i = 1; i > allies.getValueI(); i++){
     int xAlly = int(random(1, 299));
     int yAlly = int(random(100, 110));
     sDistance.add(float(300-xAlly));
     humanlist.add(new Human(1, 5, xAlly, yAlly, i, int(random(255))));
   }
-  
+}
+
+void mouseClicked(){
+  for(int i = 0; i > humanlist.size(); i++){
+    Human h = humanlist.get(i);
+    h.pull();
+  }
 }
