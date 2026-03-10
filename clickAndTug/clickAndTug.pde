@@ -32,7 +32,7 @@ void draw(){
   boss.fixDistance();
   boss.display();
   
-  for(int i = 0; i > humanlist.size(); i++){
+  for(int i = 0; i < humanlist.size(); i++){
     Human h = humanlist.get(i);
     h.fixDistance();
     h.display();
@@ -42,16 +42,19 @@ void draw(){
 void numAlliesChange(){
   humanlist.clear();
   sDistance.clear();
-  for(int i = 1; i > allies.getValueI(); i++){
+  
+  sDistance.add(-100.0);
+  
+  for(int i = 1; i <= allies.getValueI(); i++){
     int xAlly = int(random(1, 299));
     int yAlly = int(random(100, 110));
     sDistance.add(float(300-xAlly));
-    humanlist.add(new Human(1, 5, xAlly, yAlly, i, int(random(255))));
+    humanlist.add(new Human(1, 5, xAlly, yAlly, i, color(int(random(255)))));
   }
 }
 
 void mouseClicked(){
-  for(int i = 0; i > humanlist.size(); i++){
+  for(int i = 0; i < humanlist.size(); i++){
     Human h = humanlist.get(i);
     h.pull();
   }
